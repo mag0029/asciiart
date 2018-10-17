@@ -1,10 +1,20 @@
 package com.mgiraud.asciiart.manager;
+import com.mgiraud.asciiart.alphabets.*;
 
 public class AsciiManager {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	private DefaultAlphabet alphabet = new NeoAlphabet();
+	
+	public AsciiManager (DefaultAlphabet alphabet) {
+		
+	}
+	
+	
+	public String getAscciiTranslation (String message) {
+		
+		
+		return message;
+		
 	}
 
 }
