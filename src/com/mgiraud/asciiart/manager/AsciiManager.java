@@ -12,14 +12,14 @@ public class AsciiManager {
 	}
 	
 	
-	public String getAsciiTranslation (String message) {
+	public String getUpperAsciiTranslation (String message) {
         
         message = message.toUpperCase();
         StringBuilder builder = new StringBuilder();
 
         for (int i = 0; i < alphabet.getH(); i++) {
             String ROW = alphabet.getDatas()[i];
-            System.err.println(ROW);
+            //System.err.println(ROW);
 
             // char maj 65 => 90
             for(char letter : message.toCharArray()){
@@ -36,5 +36,28 @@ public class AsciiManager {
 		return retour;
 		
 	}
+	
+	public String getWideAsciiTranslation (String message) {
+        
+         StringBuilder builder = new StringBuilder();
 
+        for (int i = 0; i < alphabet.getH(); i++) {
+            String ROW = alphabet.getDatas()[i];
+            System.err.println(ROW);
+
+            // char maj 33 => 126
+            for(char letter : message.toCharArray()){
+                if(letter >= 33 && letter <= 126){
+                    builder.append(ROW.substring((letter-34)*alphabet.getW(),(letter-34)*alphabet.getW()+alphabet.getW()));
+                }else{
+                    builder.append(ROW.substring(alphabet.getW()*29,(alphabet.getW()*29)+alphabet.getW()));
+                }
+
+            }
+            builder.append("\n");
+        }
+        	String retour = builder.toString();
+		return retour;
+		
+	}
 }
